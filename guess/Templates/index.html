@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<h1>Ekstrasense game</h1>
+
+{% if not begining %}
+  <p>Здравствуй, храбрый испытатель наших экстрасенсов!
+      Итак, ты решил проверить троих наших таинственнейших экстрасенсов на их профпригодность?</p>
+  <p>Что ж, приступим!</p>
+  <h2>Загадай число от 0 до 10.</h2>
+  <h3>Число загадано? Отлично! Впиши его ниже.</h3>
+  <form action="/guess/" method="post">
+   <label for="game">Загаданное число: </label>
+   <input id="user_number" type="number" name="user_number" value="" required>
+   <input type="submit" value="OK">
+  </form>
+  <div>Вы загадали число: {{ user_number }}</div>
+  <div>Догадка экстрасенса № 1 - {{ ekstrasense_guess_numbers.0 }}</div>
+  <div>Догадка экстрасенса № 2 - {{ ekstrasense_guess_numbers.1 }}</div>
+  <div>Догадка экстрасенса № 3 - {{ ekstrasense_guess_numbers.2 }}</div>
+  {% if ekstrasense_guess_numbers.0 == user_number %}
+    <div>Ух ты! Экстрасенс под № 1 угадал ваше число! Ведь это {{ user_number }}, верно?</div>
+  {% endif %}
+  {% if ekstrasense_guess_numbers.1 == user_number %}
+    <div>Ух ты! Экстрасенс под № 2 угадал ваше число! Ведь это {{ user_number }}, верно?</div>
+  {% endif %}
+  {% if ekstrasense_guess_numbers.2 == user_number %}
+    <div>Ух ты! Экстрасенс под № 3 угадал ваше число! Ведь это {{ user_number }}, верно?</div>
+  {% endif %}
+  {% if ekstrasense_guess_numbers.0 != user_number and ekstrasense_guess_numbers.1 != user_number and ekstrasense_guess_numbers.2 != user_number %}
+    <div>Ни один из экстрасенсов не угадал вашего числа. И поэтому у них у всех уровень достоверности уменьшается на 1.</div>
+  {% endif %}
+  <div>Уровень достоверности экстрасенса № 1: {{ ekstrasense_levels.0 }}</div>
+  <div>Уровень достоверности экстрасенса № 2: {{ ekstrasense_levels.1 }}</div>
+  <div>Уровень достоверности экстрасенса № 3: {{ ekstrasense_levels.2 }}</div>
+
+  <div>История загаданных пользователем чисел: {{ user_quess_history }}</div>
+  <div>История догадок 1-го экстрасенса: {{ ekstrasense_1_guess_hystory }}</div>
+  <div>История догадок 2-го экстрасенса: {{ ekstrasense_2_guess_hystory }}</div>
+  <div>История догадок 3-го экстрасенса: {{ ekstrasense_3_guess_hystory }}</div>
+
+
+{% endif %}
