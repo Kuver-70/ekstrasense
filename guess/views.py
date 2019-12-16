@@ -14,7 +14,9 @@ ekstrasense_3_guess_hystory = []
 
 @csrf_exempt
 def game(request):
-    global ekstrasense_levels, ekstrasense_guess_numbers, begining, user_number
+    global ekstrasense_levels, ekstrasense_guess_numbers, begining, user_number, user_quess_history
+    global ekstrasense_1_guess_hystory, ekstrasense_2_guess_hystory, ekstrasense_3_guess_hystory
+
     if request.method == 'POST' and request.POST.get('user_number'):
         ekstrasense_guess_numbers[0] = randint(0, 10)
         ekstrasense_1_guess_hystory.append(ekstrasense_guess_numbers[0])
@@ -31,6 +33,13 @@ def game(request):
             else:
                 if ekstrasense_levels[i] > 0:  # Условие, чтобы уровень доверенности экстрасенсов не уходил в минус
                     ekstrasense_levels[i] -= 1 # Уменьшаем уровень доверия неотгадавшего экстрасенса
+    elif request.method == 'POST' and request.POST.get('reset'):
+        ekstrasense_levels = [0, 0, 0]
+        ekstrasense_guess_numbers = [0, 0, 0]
+        user_quess_history = []
+        ekstrasense_1_guess_hystory = []
+        ekstrasense_2_guess_hystory = []
+        ekstrasense_3_guess_hystory = []
 
     return render(request, 'index.html', {
         'ekstrasense_guess_numbers': ekstrasense_guess_numbers,

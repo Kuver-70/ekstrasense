@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ekstrasense.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Ekstrasens/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

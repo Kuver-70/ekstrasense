@@ -2,12 +2,12 @@
 
 <h1>Ekstrasense game</h1>
 
-{% if not begining %}
-  <p>Здравствуй, храбрый испытатель наших экстрасенсов!
+<p>Здравствуй, храбрый испытатель наших экстрасенсов!
       Итак, ты решил проверить троих наших таинственнейших экстрасенсов на их профпригодность?</p>
   <p>Что ж, приступим!</p>
   <h2>Загадай число от 0 до 10.</h2>
   <h3>Число загадано? Отлично! Впиши его ниже.</h3>
+
   <form action="/guess/" method="post">
    <label for="game">Загаданное число: </label>
    <input id="user_number" type="number" name="user_number" value="" required>
@@ -38,5 +38,6 @@
   <div>История догадок 2-го экстрасенса: {{ ekstrasense_2_guess_hystory }}</div>
   <div>История догадок 3-го экстрасенса: {{ ekstrasense_3_guess_hystory }}</div>
 
-
-{% endif %}
+ <form action="/guess/" method="post">
+   <input id="reset" type="submit" name="reset" value="Обнулить статистику">
+ </form>
