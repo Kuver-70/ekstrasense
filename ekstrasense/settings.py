@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_Key', '45g_w1fkk(7+81vyy_y$u+q#o*0n5(rhl1%7&r%_--zb#^pkrm')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://kuver.pythonanywhere.com/',
+                 '127.0.0.1']
 
 
 # Application definition
