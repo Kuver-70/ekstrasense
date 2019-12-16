@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_Key', '45g_w1fkk(7+81vyy_y$u+q#o*0n5(
 DEBUG = True
 
 ALLOWED_HOSTS = ['http://kuver.pythonanywhere.com/',
-                 '127.0.0.1']
+                 ]
 
 
 # Application definition
